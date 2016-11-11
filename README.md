@@ -3,8 +3,8 @@
 ## Installation
 
 1. Create a folder `One Piece` in your bookmarks
-2. Create a subfolder `backup` to manually save watched episodes. If you clear browser's memory/cache etc. you may loose what's watched!
-3. Create a link named `mark as watched and go to next` and paste the following code as URL
+2. Create a subfolder `Backup` to manually save watched episodes. If you clear browser's memory/cache etc. you may loose what's watched!
+3. Create a link named `Mark as watched and go to next` and paste the following code as URL
 
     ```javascript
     javascript:(function () {
@@ -32,21 +32,21 @@
     } ());
     ```
     
-4. Create a linked named `go to next` and paste the following code as url
+4. Create a linked named `Go to next` and paste the following code as url
 
     ```javascript
     javascript:(function () {
-    var regex = /http:\/\/www\.goodanime\.co\/one-piece-(\d+)-one-piece-(\d+)/;
+        var regex = /http:\/\/www\.goodanime\.co\/one-piece-(\d+)-one-piece-(\d+)/;
 
-    var lastWatchedUrl = window.localStorage.getItem('lastWatched');
+        var lastWatchedUrl = window.localStorage.getItem('lastWatched');
 
-    var matches = url.match(regex);
-    var episode = matches[1];
-    episode++;
-    var nextEpisodeUrl = url;
-    for (var i = 1; i < matches.length; i++) {
-        nextEpisodeUrl = nextEpisodeUrl.replace(matches[i], episode);
-    }
-    window.top.location = nextEpisodeUrl;
-} ());
+        var matches = url.match(regex);
+        var episode = matches[1];
+        episode++;
+        var nextEpisodeUrl = url;
+        for (var i = 1; i < matches.length; i++) {
+            nextEpisodeUrl = nextEpisodeUrl.replace(matches[i], episode);
+        }
+        window.top.location = nextEpisodeUrl;
+    } ());
     ```
