@@ -1,11 +1,5 @@
 # OnePiece.Watch.Bookmarklet
 
-[bookmarklet](javascript: (function () { 
-    var jsCode = document.createElement('script'); 
-    jsCode.setAttribute('src', 'http://path/to/external/file.js');                  
-  document.body.appendChild(jsCode); 
- }());)
+Add the following link in your bookmarks
 
-```javascript
-
-```
+[One Piece Watch](javascript:(function(){var s = document.createElement('script');s.setAttribute('src','https://raw.githubusercontent.com/itholoenos/OnePiece.Watch.Bookmarklet/master/script.js');document.body.appendChild(s)}());)
