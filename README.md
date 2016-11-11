@@ -32,7 +32,7 @@
     } ());
     ```
     
-4. Create a linked named `Go to next` and paste the following code as url
+4. Create a linked named `Go to next unwatched` and paste the following code as url
 
     ```javascript
     javascript:(function () {
@@ -40,10 +40,10 @@
 
         var lastWatchedUrl = window.localStorage.getItem('lastWatched');
 
-        var matches = url.match(regex);
+        var matches = lastWatchedUrl.match(regex);
         var episode = matches[1];
         episode++;
-        var nextEpisodeUrl = url;
+        var nextEpisodeUrl = lastWatchedUrl;
         for (var i = 1; i < matches.length; i++) {
             nextEpisodeUrl = nextEpisodeUrl.replace(matches[i], episode);
         }
