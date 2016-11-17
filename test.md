@@ -1,9 +1,10 @@
+             
+```razor
 @model SubmitFormMvcEFcf.Models.DataUser  
 @{
    ViewBag.Title = "Home Page";  
 } 
-                        
-```html
+          
 <div class="row">
  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
          @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { role = "form" }))
