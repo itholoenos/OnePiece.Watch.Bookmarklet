@@ -7,11 +7,14 @@
 3. Create a link named `Mark as watched and go to next` and paste the following code as URL
 
     ```javascript
-    javascript:(function () {
-        var regex = /http:\/\/www\.goodanime\.co\/one-piece-(\d+)-one-piece-(\d+)/;
+    javascript: (function() {
+        var urlTemplate = "http://www.goodanime.co/one-piece-[NUM]";
+
+        var regex = /one-piece-(\d+)/;
 
         var url = window.location.href;
-        if (!regex.test(url)) return;
+        if (!regex.test(url))
+            return;
 
         var matches = url.match(regex);
         var episode = matches[1];
@@ -20,16 +23,10 @@
         if (saveConfirmed) {
             window.localStorage.setItem('lastWatched', url);
 
-            episode++;
-
-            var nextEpisodeUrl = url;        
-            for (var i = 1; i < matches.length; i++) {
-                nextEpisodeUrl = nextEpisodeUrl.replace(matches[i], episode);
-            }
-
+            var nextEpisodeUrl = urlTemplate.replace("[NUM]", ++episode);
             window.top.location = nextEpisodeUrl;
         }
-    } ());
+    }());
     ```
     
 4. Create a linked named `Go to next unwatched` and paste the following code as url
