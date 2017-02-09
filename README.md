@@ -35,18 +35,18 @@
 4. Create a linked named `Go to next unwatched` and paste the following code as url
 
     ```javascript
-javascript:(function () {
-    var urlTemplate = "http://www.goodanime.co/one-piece-[NUM]";
+    javascript:(function () {
+        var urlTemplate = "http://www.goodanime.co/one-piece-[NUM]";
 
-    var regex = /one-piece-(\d+)/;
+        var regex = /one-piece-(\d+)/;
 
-    var lastWatchedUrl = window.localStorage.getItem('lastWatched');
+        var lastWatchedUrl = window.localStorage.getItem('lastWatched');
 
-    var matches = lastWatchedUrl.match(regex);
-    var episode = matches[1];
+        var matches = lastWatchedUrl.match(regex);
+        var episode = matches[1];
 
-    var nextEpisodeUrl = urlTemplate.replace("[NUM]", ++episode);
-    
-    window.top.location = nextEpisodeUrl;
-} ());
+        var nextEpisodeUrl = urlTemplate.replace("[NUM]", ++episode);
+
+        window.top.location = nextEpisodeUrl;
+    } ());
     ```
